@@ -4,6 +4,10 @@
 # IntelliJ stuff
 /.idea
 
+# Environment Variables
+.env
+.env.test
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
