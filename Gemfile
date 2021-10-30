@@ -28,6 +28,7 @@ group :development do
 end
 
 group :test do
+  gem 'codecov', '~> 0.6.0', require: false
   gem 'database_cleaner-active_record', '~> 2.0.1'
   gem 'guard-rspec', '~> 4.7.3', require: false
   gem 'rspec-its', '~> 1.3'

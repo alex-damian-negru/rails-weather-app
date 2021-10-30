@@ -8,6 +8,10 @@
 .env
 .env.test
 
+# Test coverage
+
+/coverage
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
