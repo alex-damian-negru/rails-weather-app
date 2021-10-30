@@ -8,12 +8,34 @@ Presently, only UK postal codes are accepted.
 
 Requires `docker` & `docker-compose` to be installed.
 
-1. `docker-compose build` to build the app.
-2. `docker-compose run web bundle install` to install the gems.
-3. `cp .env.example .env` and edit fields as needed.
-4. `cp .env.example .env.test` and edit the ENV variables used in tests as needed. Replace `weather_app_dev` with `weather_app_test`.
-5. `docker-compose run web bundle exec rails db:prepare` to setup the database.
-6. `docker-compose up` to start the app.
+1. Build the app:
+```bash
+docker-compose build
+```
+2. Install the gems:
+```bash
+docker-compose run web bundle install
+```
+3. Create the `.env` file used in development; edit the vars as needed:
+```bash
+cp .env.example .env
+```
+4. Create the `.env.test` file used in tests; replace `weather_app_dev` with `weather_app_test` and edit the rest as needed:
+```bash
+cp .env.example .env.test
+```
+5. Create the development database:
+```bash
+docker-compose run web bundle exec rails db:prepare
+```
+6. Prepare the test database:
+```bash
+docker-compose run web bundle exec rails db:test:prepare
+```
+7. Start the app
+```bash
+docker-compose up
+```
 
 ## Testing
 
