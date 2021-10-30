@@ -47,6 +47,10 @@ GEM
     activerecord (6.1.4.1)
       activemodel (= 6.1.4.1)
       activesupport (= 6.1.4.1)
+    activerecord-pg_enum (1.2.2)
+      activerecord (>= 4.1.0)
+      activesupport
+      pg
     activestorage (6.1.4.1)
       actionpack (= 6.1.4.1)
       activejob (= 6.1.4.1)
@@ -263,6 +267,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord-pg_enum (~> 1.2.2)
   bootsnap (~> 1.9)
   codecov (~> 0.6.0)
   database_cleaner-active_record (~> 2.0.1)
