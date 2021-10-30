@@ -6,9 +6,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.2'
 
 gem 'bootsnap', '~> 1.9'
-gem 'rails', '~> 6.1.4.1'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
+gem 'rails', '~> 6.1.4.1'
 gem 'sass-rails', '~> 6.0'
 
 group :development, :test do
@@ -19,7 +19,6 @@ group :development, :test do
   gem 'rubocop', '~> 1.22'
   gem 'rubocop-performance', '~> 1.11.5'
   gem 'rubocop-rails', '~> 2.12.4'
-  gem 'rubocop-rake', '~> 0.6.0'
   gem 'rubocop-rspec', '~> 2.5.0'
 end
 
@@ -35,4 +34,4 @@ group :test do
   gem 'rspec-rails', '~> 5.0.2'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

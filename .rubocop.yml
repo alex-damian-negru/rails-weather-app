@@ -1,0 +1,38 @@
+require:
+  - rubocop
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 3.0.2
+  Exclude:
+    - 'vendor/bundle/**/*'
+    - 'db/schema.rb'
+    - 'bin/bundle'
+  NewCops: enable
+
+RSpec/ExampleLength:
+  Max: 10
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+    - "spec/factories/**/*.rb"
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*.rb'
+
+RSpec/NestedGroups:
+  Max: 5
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
