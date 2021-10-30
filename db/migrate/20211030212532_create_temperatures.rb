@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTemperatures < ActiveRecord::Migration[6.1]
   def up
     create_enum :temperature_definitions, %w[cold warm hot]
