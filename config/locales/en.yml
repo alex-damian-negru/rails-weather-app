@@ -1,8 +1,8 @@
 en:
-  helpers:
-    submit:
-      create: 'Update definitions'
   temperatures:
     cold: 'Cold'
     warm: 'Warm'
     hot: 'Hot'
+    errors:
+      base: '%{errors} prevented the action from taking place:'
+      min_over_max: 'must be less than or equal to max'

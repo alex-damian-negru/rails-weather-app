@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'weather#show'
+  root 'temperatures#index'
 
-  put 'temperatures', to: 'temperatures#upsert'
+  post '/', to: 'temperatures#upsert'
 end
