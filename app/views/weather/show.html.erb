@@ -1,0 +1,30 @@
+<h1>Weather</h1>
+
+<%= form_for @temperature, method: :put do |f| %>
+  <table>
+    <tr>
+      <th>Definition</th>
+      <th>Min</th>
+      <th>Max</th>
+    </tr>
+      <tr>
+        <td><%= I18n.t('temperatures.cold') %></td>
+        <%= f.hidden_field 'definitions[][type]', value: 'cold'  %>
+        <td><%= f.number_field 'definitions[][min]', in: -100...100, value: -10 %></td>
+        <td><%= f.number_field 'definitions[][max]', in: -100...100, value: 19 %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('temperatures.warm') %></td>
+        <%= f.hidden_field 'definitions[][type]', value: 'warm'  %>
+        <td><%= f.number_field 'definitions[][min]', in: -100...100, value: -10 %></td>
+        <td><%= f.number_field 'definitions[][max]', in: -100...100, value: 19 %></td>
+      </tr>
+      <tr>
+        <td><%= I18n.t('temperatures.hot') %></td>
+        <%= f.hidden_field 'definitions[][type]', value: 'hot'  %>
+        <td><%= f.number_field 'definitions[][min]', in: -100...100, value: -10 %></td>
+        <td><%= f.number_field 'definitions[][max]', in: -100...100, value: 19 %></td>
+      </tr>
+  </table>
+  <%= f.submit %>
+<% end %>
