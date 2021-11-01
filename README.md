@@ -13,11 +13,16 @@ Requires `docker` & `docker-compose` to be installed.
 ```bash
 docker-compose build
 ```
-2. Install the gems:
+2. Copy the env variables
+```bash
+cp .env.example .env
+cp .env.example .env.test
+```
+3. Install the gems:
 ```bash
 docker-compose run web bundle install -j4
 ```
-3. Start the app
+4. Start the app
 ```bash
 docker-compose up
 ```
@@ -33,7 +38,13 @@ Requirements:
 bundle install -j4
 ```
 
-2. Start the app
+2. Copy the env variables
+```bash
+cp .env.example .env
+cp .env.example .env.test
+```
+
+3Start the app
 ```bash
 bundle exec rails server
 ```

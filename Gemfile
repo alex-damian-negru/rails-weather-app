@@ -12,6 +12,7 @@ gem 'sass-rails', '~> 6.0'
 gem 'validates_zipcode', '~> 0.5.0'
 
 group :development, :test do
+  gem 'dotenv-rails', '~> 2.7.6'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'guard-rubocop', '~> 1.4'
   gem 'pry-byebug', '~> 3.9', platform: :mri
