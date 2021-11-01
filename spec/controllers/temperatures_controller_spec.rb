@@ -34,7 +34,7 @@ RSpec.describe TemperaturesController, type: :controller do
       end
     end
 
-    context 'when the temperatures have not already been defined' do
+    context 'when the temperatures have not been defined' do
       it 'uses the default values' do
         values = [
           { type: 'cold', min: 0, max: 0 },
@@ -47,13 +47,7 @@ RSpec.describe TemperaturesController, type: :controller do
     end
 
     context 'when the cookies have been tampered with' do
-      context 'with invalid values' do
-        before do
-          cookies[:cold] = Base64.strict_encode64 attributes_for(:temperature, :cold).to_json
-          cookies[:warm] = 'invalid'
-          cookies[:hot] = Base64.strict_encode64 attributes_for(:temperature, :hot).to_json
-        end
-
+      shared_examples 'an invalid cookies handler' do
         it 'deletes the affected cookies' do
           index.then do
             expect(cookies[:warm]).to be_blank
@@ -71,6 +65,26 @@ RSpec.describe TemperaturesController, type: :controller do
 
           index.then { expect(temperatures.map(&:to_h)).to eq values }
         end
+      end
+
+      context 'with non-decodeable values' do
+        before do
+          cookies[:cold] = Base64.strict_encode64 attributes_for(:temperature, :cold).to_json
+          cookies[:warm] = 'invalid'
+          cookies[:hot] = Base64.strict_encode64 attributes_for(:temperature, :hot).to_json
+        end
+
+        it_behaves_like 'an invalid cookies handler'
+      end
+
+      context 'with decodeable, but invalid values' do
+        before do
+          cookies[:cold] = Base64.strict_encode64 attributes_for(:temperature, :cold).to_json
+          cookies[:warm] = Base64.strict_encode64({ key: :invalid }.to_json)
+          cookies[:hot] = Base64.strict_encode64 attributes_for(:temperature, :hot).to_json
+        end
+
+        it_behaves_like 'an invalid cookies handler'
       end
     end
   end

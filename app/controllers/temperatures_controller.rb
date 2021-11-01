@@ -36,6 +36,8 @@ class TemperaturesController < ApplicationController
   end
 
   def valid_cookie?(key)
-    cookies[key].present? && Temperature::Decoder.decodeable?(cookies[key])
+    cookies[key].present? &&
+      Temperature::Decoder.decodeable?(cookies[key]) &&
+      Temperature::Decoder.decode(cookies[key]).keys.sort == Temperature.attributes.sort
   end
 end
