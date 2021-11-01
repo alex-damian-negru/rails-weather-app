@@ -1,0 +1,21 @@
+<%= form_tag do %>
+  <table>
+    <tr>
+      <th>Definition</th>
+      <th>Min</th>
+      <th>Max</th>
+    </tr>
+    <% @temperatures.each do |temperature| %>
+      <tr>
+        <td><%= I18n.t("temperatures.#{temperature.type}") %></td>
+        <%= hidden_field_tag 'temperatures[][type]', temperature.type %>
+        <td><%= number_field_tag 'temperatures[][min]', temperature.min, in: -100...100  %></td>
+        <td><%= number_field_tag 'temperatures[][max]', temperature.max, in: -100...100  %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= render 'temperatures/errors' %>
+
+  <%= submit_tag 'Update definitions' %>
+<% end %>

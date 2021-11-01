@@ -11,20 +11,8 @@ services:
     volumes:
       - .:/app
       - bundle_path:/bundle
-    depends_on:
-      - db
     environment:
       - BUNDLE_PATH=/bundle/vendor
-  db:
-    image: postgres:13.4
-    container_name: weather_app_db
-    environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
-    ports:
-      - "5800:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
 
 volumes:
-  pgdata:
   bundle_path:

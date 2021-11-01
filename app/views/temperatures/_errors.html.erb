@@ -1,0 +1,10 @@
+<% if @errors.present? %>
+  <div id="errors">
+    <strong><%= I18n.t('temperatures.errors.base', errors: pluralize(@errors.count, 'error')) %></strong>
+    <ul>
+      <% @errors.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
