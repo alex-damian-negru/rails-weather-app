@@ -33,6 +33,13 @@ RSpec/NestedGroups:
 RSpec/MultipleExpectations:
   Enabled: false
 
+RSpec/ContextWording:
+  Prefixes:
+    - when
+    - with
+    - without
+    - for
+
 Style/Documentation:
   Enabled: false
 
