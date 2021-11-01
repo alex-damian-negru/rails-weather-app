@@ -9,6 +9,7 @@ gem 'bootsnap', '~> 1.9'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4.1'
 gem 'sass-rails', '~> 6.0'
+gem 'validates_zipcode', '~> 0.5.0'
 
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
