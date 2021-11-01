@@ -2,8 +2,12 @@
 
 class TemperaturesController < ApplicationController
   def index
-    @temperatures = Temperature::TYPES.map do |type|
-      cookie?(type) ? Temperature.new(decoded_cookie(type)) : Temperature.new(min: 0, max: 0, type: type)
+    @temperatures = Temperature::TYPES.values.map do |type|
+      if valid_cookie?(type)
+        Temperature.new(decoded_cookie(type))
+      else
+        cookies.delete(type).then { Temperature.new(min: 0, max: 0, type: type) }
+      end
     end
   end
 
@@ -31,7 +35,7 @@ class TemperaturesController < ApplicationController
     Temperature::Decoder.decode(cookies[key])
   end
 
-  def cookie?(key)
-    cookies[key].present?
+  def valid_cookie?(key)
+    cookies[key].present? && Temperature::Decoder.decodeable?(cookies[key])
   end
 end

@@ -3,19 +3,19 @@
 FactoryBot.define do
   factory :temperature do
     trait :cold do
-      type { Temperature.types[:cold] }
+      type { Temperature::TYPES[:cold] }
       min { 0 }
       max { 18 }
     end
 
     trait :warm do
-      type { Temperature.types[:warm] }
+      type { Temperature::TYPES[:warm] }
       min { 19 }
       max { 28 }
     end
 
     trait :hot do
-      type { Temperature.types[:hot] }
+      type { Temperature::TYPES[:hot] }
       min { 29 }
       max { 50 }
     end
