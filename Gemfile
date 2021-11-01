@@ -28,6 +28,7 @@ end
 group :test do
   gem 'codecov', '~> 0.6.0', require: false
   gem 'guard-rspec', '~> 4.7.3', require: false
+  gem 'rails-controller-testing', '~> 1.0.5'
   gem 'rspec-its', '~> 1.3'
   gem 'rspec-rails', '~> 5.0.2'
 end
