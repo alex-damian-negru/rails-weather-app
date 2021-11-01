@@ -12,24 +12,16 @@ class TemperaturesController < ApplicationController
   end
 
   def upsert
-    @temperatures =
-      params
-      .require(:temperatures)
-      .map { _1.permit(:type, :min, :max) }
-      .map { Temperature.new(_1) }
+    @temperatures = params.require(:temperatures).map { Temperature.new _1.permit(:type, :min, :max) }
 
     if @temperatures.all?(&:valid?)
-      @temperatures.each { cookies[_1.type] = _1.to_encoded if cookies[_1.type].blank? || changed?(_1) }
+      @temperatures.each { cookies[_1.type] = _1.to_encoded }
     else
       @errors = @temperatures.map(&:errors).flat_map(&:full_messages)
     end
   end
 
   private
-
-  def changed?(temperature)
-    decoded_cookie(temperature.type) != temperature
-  end
 
   def decoded_cookie(key)
     Temperature::Decoder.decode(cookies[key])

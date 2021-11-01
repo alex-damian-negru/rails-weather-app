@@ -88,4 +88,54 @@ RSpec.describe TemperaturesController, type: :controller do
       end
     end
   end
+
+  describe '#upsert' do
+    subject(:upsert) { post(:upsert, params: params) }
+
+    context 'with valid temperatures' do
+      let(:params) do
+        {
+          temperatures: [
+            { type: Temperature::TYPES[:cold], min: -5, max: 0 },
+            { type: Temperature::TYPES[:warm], min: 1, max: 5 },
+            { type: Temperature::TYPES[:hot], min: 6, max: 10 }
+          ]
+        }
+      end
+
+      it 'persists the new definitions' do
+        upsert.then do
+          expect(cookies[:cold]).to be_present
+          expect(cookies[:warm]).to be_present
+          expect(cookies[:hot]).to be_present
+        end
+      end
+
+      it 'has no errors' do
+        upsert.then { expect(assigns(:errors)).to be_blank }
+      end
+    end
+
+    context 'with invalid temperatures' do
+      let(:params) do
+        {
+          temperatures: [
+            { type: Temperature::TYPES[:cold], min: -5, max: 10 },
+            { type: Temperature::TYPES[:warm], min: 1000, max: 5 },
+            { type: 'permafrost', min: 6, max: 10 }
+          ]
+        }
+      end
+
+      it 'does not alter the temperatures' do
+        expect { upsert }.not_to(change { cookies[:cold] })
+        expect { upsert }.not_to(change { cookies[:warm] })
+        expect { upsert }.not_to(change { cookies[:hot] })
+      end
+
+      it 'has errors' do
+        upsert.then { expect(assigns(:errors)).to be_present }
+      end
+    end
+  end
 end
