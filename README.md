@@ -4,6 +4,8 @@ This app tells the user whether today's going to be **Cold**, **Warm**, or **Hot
 
 Presently, only UK postal codes are accepted.
 
+App can be accessed on: https://weather-app-rails.herokuapp.com/
+
 ## Setup
 
 ### Dockerized version
