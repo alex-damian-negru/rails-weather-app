@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'net/http'
+
 class WeatherService
   ENDPOINT = 'http://api.weatherapi.com/v1'
 
