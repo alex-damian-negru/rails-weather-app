@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ZipCode
+class ZipCodeService
   class << self
     def valid?(zip_code)
       ValidatesZipcode.valid? zip_code, 'UK'

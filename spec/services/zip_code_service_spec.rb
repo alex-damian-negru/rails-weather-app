@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ZipCode do
+RSpec.describe ZipCodeService do
   subject(:service) { described_class }
 
   describe '.valid?' do
