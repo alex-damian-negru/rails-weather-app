@@ -34,6 +34,8 @@ group :test do
   gem 'rspec-its', '~> 1.3'
   gem 'rspec-rails', '~> 5.0.2'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'vcr', '~> 6.0'
+  gem 'webmock', '~> 3.14'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
