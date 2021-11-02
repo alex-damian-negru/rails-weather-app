@@ -1,0 +1,61 @@
+---
+http_interactions:
+  - request:
+      method: get
+      uri: http://api.weatherapi.com/v1/forecast.json?key=<WEATHER_API_KEY>&q=laksjflaslkfdasljgoasjgoiwashogoishg
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+        User-Agent:
+          - Ruby
+        Host:
+          - api.weatherapi.com
+    response:
+      status:
+        code: 400
+        message: Bad Request
+      headers:
+        Date:
+          - Tue, 02 Nov 2021 17:21:35 GMT
+        Content-Type:
+          - application/json
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Server:
+          - BunnyCDN-BU1-717
+        Cdn-Pullzone:
+          - '93447'
+        Cdn-Uid:
+          - 8fa3a04a-75d9-4707-8056-b7b33c8ac7fe
+        Cdn-Requestcountrycode:
+          - RO
+        Cache-Control:
+          - public, max-age=5
+        Cdn-Proxyver:
+          - '1.0'
+        Cdn-Requestpullsuccess:
+          - 'True'
+        Cdn-Requestpullcode:
+          - '400'
+        Cdn-Cachedat:
+          - 11/02/2021 13:21:35
+        Cdn-Edgestorageid:
+          - '717'
+        Cdn-Status:
+          - '400'
+        Cdn-Requestid:
+          - 52a06aa3dc1b7f57a78b10ac27cb9dd1
+        Cdn-Cache:
+          - MISS
+      body:
+        encoding: UTF-8
+        string: '{"error":{"code":1006,"message":"No matching location found."}}'
+    recorded_at: Tue, 02 Nov 2021 17:21:35 GMT
+recorded_with: VCR 6.0.0

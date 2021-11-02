@@ -1,0 +1,64 @@
+---
+http_interactions:
+  - request:
+      method: get
+      uri: http://api.weatherapi.com/v1/forecast.json?key=<WEATHER_API_KEY>&q=SW1
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+        User-Agent:
+          - Ruby
+        Host:
+          - api.weatherapi.com
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 02 Nov 2021 17:26:20 GMT
+        Content-Type:
+          - application/json
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Vary:
+          - Accept-Encoding
+        Server:
+          - BunnyCDN-BU1-717
+        Cdn-Pullzone:
+          - '93447'
+        Cdn-Uid:
+          - 8fa3a04a-75d9-4707-8056-b7b33c8ac7fe
+        Cdn-Requestcountrycode:
+          - RO
+        Cache-Control:
+          - public, max-age=180
+        Cdn-Proxyver:
+          - '1.0'
+        Cdn-Requestpullsuccess:
+          - 'True'
+        Cdn-Requestpullcode:
+          - '200'
+        Cdn-Cachedat:
+          - 11/02/2021 13:23:36
+        Cdn-Edgestorageid:
+          - '717'
+        Cdn-Status:
+          - '200'
+        Cdn-Requestid:
+          - 9efaf8112c2f7fc233f92eef0dfdbb45
+        Cdn-Cache:
+          - HIT
+      body:
+        encoding: ASCII-8BIT
+        string: '{"location":{"name":"Westminster","region":"London","country":"UK","lat":51.5,"lon":-0.14,"tz_id":"Europe/London","localtime_epoch":1635873816,"localtime":"2021-11-02
+        17:23"},"current":{"condition":{},"uv":4.0},"forecast":{"forecastday":[{"day":{"maxtemp_c":12.6,"condition":{}},"astro":{},"hour":[{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}},{"condition":{}}]}]}}'
+    recorded_at: Tue, 02 Nov 2021 17:26:20 GMT
+recorded_with: VCR 6.0.0
