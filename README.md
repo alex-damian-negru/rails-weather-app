@@ -1,8 +1,12 @@
-# Weather App
+# Weather App ⛅
+
+![CI](https://github.com/alex-damian-negru/rails-weather-app/actions/workflows/main.yaml/badge.svg) ![Heroku](https://heroku-badge.herokuapp.com/?app=weather-app-rails)
 
 This app tells the user whether today's going to be **Cold**, **Warm**, or **Hot** based on the user's definitions of the temperature ranges and a given postal code.
 
 Presently, only UK postal codes are accepted.
+
+App can be accessed on: https://weather-app-rails.herokuapp.com/
 
 ## Setup
 
