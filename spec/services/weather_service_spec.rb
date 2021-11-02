@@ -36,4 +36,24 @@ RSpec.describe WeatherService, :vcr do
       it { is_expected.not_to include(:error) }
     end
   end
+
+  describe '.forecast_for_today' do
+    subject(:forecast_for_today) { service.forecast_for_today('SW1') }
+
+    context 'when the response is successful' do
+      around do |example|
+        VCR.use_cassette('services/weather_service/success', match_requests_on: [:method]) { example.run }
+      end
+
+      it { is_expected.to eq(maxtemp_c: 12.6) }
+    end
+
+    context 'when the response has errors' do
+      around do |example|
+        VCR.use_cassette('services/weather_service/invalid_query', match_requests_on: [:method]) { example.run }
+      end
+
+      it { is_expected.to eq :internal_errors }
+    end
+  end
 end

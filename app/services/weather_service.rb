@@ -11,5 +11,12 @@ class WeatherService
         .then { Net::HTTP.get(_1) }
         .then { JSON.parse(_1, symbolize_names: true) }
     end
+
+    def forecast_for_today(...)
+      forecast(...)
+        .dig(:forecast, :forecastday, 0, :day)
+        &.reject { |_key, value| value.blank? }
+        .then { _1 || :internal_errors }
+    end
   end
 end
