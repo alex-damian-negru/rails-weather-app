@@ -44,7 +44,7 @@ cp .env.example .env
 cp .env.example .env.test
 ```
 
-3Start the app
+3. Start the app
 ```bash
 bundle exec rails server
 ```
