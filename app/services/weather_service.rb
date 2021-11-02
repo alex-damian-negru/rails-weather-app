@@ -16,7 +16,7 @@ class WeatherService
       forecast(...)
         .dig(:forecast, :forecastday, 0, :day)
         &.reject { |_key, value| value.blank? }
-        .then { _1 || :internal_errors }
+        .then { _1 || { status: :unavailable } }
     end
   end
 end

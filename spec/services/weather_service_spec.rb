@@ -53,7 +53,7 @@ RSpec.describe WeatherService, :vcr do
         VCR.use_cassette('services/weather_service/invalid_query', match_requests_on: [:method]) { example.run }
       end
 
-      it { is_expected.to eq :internal_errors }
+      it { is_expected.to eq(status: :unavailable) }
     end
   end
 end

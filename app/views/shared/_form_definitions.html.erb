@@ -1,4 +1,4 @@
-<%= form_tag do %>
+<%= form_tag '/temperatures' do %>
   <table>
     <tr>
       <th>Definition</th>
@@ -15,7 +15,7 @@
     <% end %>
   </table>
 
-  <%= render 'temperatures/errors' %>
+  <%= render 'shared/errors' %>
 
   <%= submit_tag 'Update definitions' %>
 <% end %>

@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
 class TemperaturesController < ApplicationController
+  include Concerns::Temperatures
+
   def index
-    @temperatures = Temperature::TYPES.values.map do |type|
-      if valid_cookie?(type)
-        Temperature.new(decoded_cookie(type))
-      else
-        cookies.delete(type).then { Temperature.new(min: 0, max: 0, type: type) }
-      end
-    end
+    @temperatures = temperatures
   end
 
   def upsert
@@ -19,17 +15,5 @@ class TemperaturesController < ApplicationController
     else
       @errors = @temperatures.map(&:errors).flat_map(&:full_messages)
     end
-  end
-
-  private
-
-  def decoded_cookie(key)
-    Temperature::Decoder.decode(cookies[key])
-  end
-
-  def valid_cookie?(key)
-    cookies[key].present? &&
-      Temperature::Decoder.decodeable?(cookies[key]) &&
-      Temperature::Decoder.decode(cookies[key]).keys.sort == Temperature.attributes.sort
   end
 end
