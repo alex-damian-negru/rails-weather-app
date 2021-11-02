@@ -1,8 +1,15 @@
 en:
+  notices:
+    weather_unavailable: 'Weather service is unavailable. Please try again later'
   temperatures:
     cold: 'Cold'
     warm: 'Warm'
     hot: 'Hot'
+    formatted:
+      cold: 'Cold (Max %{temperature}°C)'
+      warm: 'Warm (Max %{temperature}°C)'
+      hot: 'Hot (Max %{temperature}°C)'
+      unknown: 'Unknown (%{reason})'
     errors:
       base: '%{errors} prevented the action from taking place:'
       min_over_max: 'must be less than or equal to max'

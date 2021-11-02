@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-module Concerns
-  module Temperatures
+module Temperatures
+  extend ActiveSupport::Concern
+
+  included do
     private
 
     def temperatures

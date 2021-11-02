@@ -1,3 +1,10 @@
 <%= render 'shared/form_definitions' %>
 <br>
 <%= render 'shared/weather' %>
+<br>
+
+<%= render 'shared/errors' %>
+
+<% if @weather.present? %>
+  <%= render 'shared/forecast' %>
+<% end %>

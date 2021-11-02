@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class TemperaturesController < ApplicationController
-  include Concerns::Temperatures
+  include Temperatures
 
   def index
     @temperatures = temperatures
+    @weather = nil
   end
 
   def upsert
