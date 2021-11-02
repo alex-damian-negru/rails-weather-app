@@ -1,0 +1,4 @@
+<%= form_tag '/weather', method: :get do %>
+  <%= text_field_tag 'zip_code', '', placeholder: 'Enter UK postal code' %>
+  <%= submit_tag 'Get forecast' %>
+<% end %>

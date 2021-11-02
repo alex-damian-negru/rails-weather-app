@@ -9,8 +9,10 @@ gem 'bootsnap', '~> 1.9'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4.1'
 gem 'sass-rails', '~> 6.0'
+gem 'validates_zipcode', '~> 0.5.0'
 
 group :development, :test do
+  gem 'dotenv-rails', '~> 2.7.6'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'guard-rubocop', '~> 1.4'
   gem 'pry-byebug', '~> 3.9', platform: :mri
@@ -32,6 +34,8 @@ group :test do
   gem 'rspec-its', '~> 1.3'
   gem 'rspec-rails', '~> 5.0.2'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'vcr', '~> 6.0'
+  gem 'webmock', '~> 3.14'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
