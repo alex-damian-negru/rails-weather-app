@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'net/http'
+
 class WeatherService
   ENDPOINT = 'http://api.weatherapi.com/v1'
 
@@ -8,7 +10,7 @@ class WeatherService
       URI(ENDPOINT)
         .tap { _1.path += '/forecast.json' }
         .tap { _1.query = { key: ENV['WEATHER_API_KEY'], q: query }.to_query }
-        .then { Net::HTTP.get(_1) }
+        .then { ::Net::HTTP.get(_1) }
         .then { JSON.parse(_1, symbolize_names: true) }
     end
 
